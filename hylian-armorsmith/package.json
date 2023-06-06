@@ -6,12 +6,15 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint . --fix --ignore-path .gitignore"
+    "lint": "eslint . --fix --ignore-path .gitignore",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src/"
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
     "@vitejs/plugin-vue": "^4.2.3",
     "core-js": "^3.29.0",
+    "prettier": "^2.8.8",
     "roboto-fontface": "*",
     "vite": "^4.3.9",
     "vite-plugin-vuetify": "^1.0.2",
