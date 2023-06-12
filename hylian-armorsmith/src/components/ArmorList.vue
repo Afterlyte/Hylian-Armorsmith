@@ -4,11 +4,7 @@
       <v-card width="480" class="pa-4">
         <v-card-title>{{ a.name }}</v-card-title>
         <v-card-subtitle>Current Level {{ currentLevels[i] }}</v-card-subtitle>
-        <v-radio-group
-          v-model="currentLevels[i]"
-          inline
-          @update:model-value="updateMaterialList"
-        >
+        <v-radio-group v-model="currentLevels[i]" inline @update:model-value="updateMaterialList">
           <v-radio label="Base" value="0"></v-radio>
           <v-radio label="Level 1" value="1"></v-radio>
           <v-radio label="Level 2" value="2"></v-radio>
@@ -16,11 +12,7 @@
           <v-radio label="Level 4" value="4"></v-radio>
         </v-radio-group>
         <v-card-subtitle>Goal Level {{ goalLevels[i] }}</v-card-subtitle>
-        <v-radio-group
-          v-model="goalLevels[i]"
-          inline
-          @update:model-value="updateMaterialList"
-        >
+        <v-radio-group v-model="goalLevels[i]" inline @update:model-value="updateMaterialList">
           <v-radio label="Base" value="0"></v-radio>
           <v-radio label="Level 1" value="1"></v-radio>
           <v-radio label="Level 2" value="2"></v-radio>
@@ -38,10 +30,11 @@ import { Material, MaterialType } from "@/scripts/material";
 import { store } from "@/scripts/store";
 import { computed, ref } from "vue";
 
+
 store.loadMaterials();
-let armorList = ref(Array<Armor>(2));
-const currentLevels = ref(new Array<number>(armorList.value.length).fill(0));
-const goalLevels = ref(new Array<number>(armorList.value.length).fill(0));
+let armorList = Array<Armor>(2);
+const currentLevels = ref(new Array<number>(armorList.length));
+const goalLevels = ref(new Array<number>(armorList.length));
 
 armorList = ref([
   new Armor(ArmorSet.Climbers, ArmorSlot.Body, "Climbing Gear", 3, Level.Base, [
@@ -100,16 +93,15 @@ armorList = ref([
 ]);
 console.log(currentLevels.value);
 console.log(goalLevels.value);
-console.log(armorList.value);
 
 function updateMaterialList() {
-  store.resetMaterials();
-  for (let i = 0; i < armorList.value.length; i++) {
-    for (let j = +currentLevels.value[i] + +1; j <= goalLevels.value[i]; j++) {
-      console.log(armorList.value[i].upgradeMaterials[j]);
-      for (let k = 0; k < armorList.value[i].upgradeMaterials[j].length; k++) {
-        store.addMaterial(armorList.value[i].upgradeMaterials[j][k]);
-      }
+  store.loadMaterials();
+  for (let i=0; i<armorList.length; i++) {
+    for (let j=currentLevels.value[i]+1; j<=goalLevels.value[i]; j++) {
+      console.log(armorList[i].upgradeMaterials[j]);
+      /*for(let k=0; k<armorList[i].upgradeMaterials[j].length; k++) {
+        store.addMaterial(armorList[i].upgradeMaterials[j][k]);
+      }*/
     }
   }
   //console.log(store.materialList);
