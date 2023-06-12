@@ -26,7 +26,7 @@ export class Armor {
   name: string;
   defensePoints: number;
   level: Level;
-  upgradeMaterials: Array<Array<Material>>;
+  upgradeMaterials: Material[][];
 
   constructor(
     set: ArmorSet = ArmorSet.Other,
@@ -34,7 +34,7 @@ export class Armor {
     name: string,
     defensePoints: number,
     level: Level = Level.Base,
-    upgradeMaterials: Array<Array<Material>> = new Array<Array<Material>>(4)
+    upgradeMaterials: Material[][]
   ) {
     this.set = set;
     this.slot = slot;

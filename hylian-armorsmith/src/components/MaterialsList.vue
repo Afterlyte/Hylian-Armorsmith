@@ -6,7 +6,7 @@
       </v-card-title>
       <v-list class="pb-4">
         <div v-for="m in store.materialList" :key="m.typeName">
-          <v-row class="justify-center" v-if="m.count>0">
+          <v-row class="justify-center" v-if="m.count > 0">
             {{ m.typeName }}: {{ m.count }}
           </v-row>
         </div>
