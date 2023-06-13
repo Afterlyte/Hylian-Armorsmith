@@ -13,9 +13,21 @@ namespace Armorsmith.Api
         }
 
         public async Task<Armor> GetArmorAsync(string name)
+
         {
-            Armor armor = await _db.Armors.Where(a => a.Name == name).FirstAsync();
+            Armor armor = await _db.Armors
+                .Include(a => a.DefensePoints)
+                .Include(a => a.UpgradeMaterials)
+                .Where(a => a.Name == name).FirstAsync();
             return armor;
+        }
+
+        internal async Task<List<Armor>> GetFilteredArmorListAsync(int[] setFilters, int[] slotFilters)
+        {
+            return await _db.Armors
+                .Include(a => a.DefensePoints)
+                .Include(a => a.UpgradeMaterials)
+                .Where(a => setFilters.Contains(a.Set) && slotFilters.Contains(a.Slot)).ToListAsync();
         }
     }
 }
