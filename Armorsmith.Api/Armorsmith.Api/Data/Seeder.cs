@@ -9,26 +9,32 @@
 
         public static void SeedArmor(AppDbContext db)
         {
-            if(db.Armors.Any())
+            if (!db.Armors.Any())
             {
-                var climbersBandana = new Armor("Climber's Bandana", ArmorSet.Climbers, ArmorSlot.Head, 3, Level.Base);
-                climbersBandana.SetUpgradeMaterials(new Material[] { new Material(MaterialType.KeeseWing, 3), new Material(MaterialType.Rushroom, 3) }, 1);
-                climbersBandana.SetUpgradeMaterials(new Material[] { new Material(MaterialType.ElectricKeeseWing, 5), new Material(MaterialType.HightailLizard, 5) }, 2);
-                climbersBandana.SetUpgradeMaterials(new Material[] { new Material(MaterialType.HotFootedFrog, 10), new Material(MaterialType.IceKeeseWing, 8) }, 3);
-                climbersBandana.SetUpgradeMaterials(new Material[] { new Material(MaterialType.SwiftViolet, 20), new Material(MaterialType.FireKeeseWing, 10) }, 4);
-                db.Armors.Add(climbersBandana);
-                var climbingGear = new Armor("Climbing Gear", ArmorSet.Climbers, ArmorSlot.Body, 3, Level.Base);
-                climbingGear.SetUpgradeMaterials(new Material[] { new Material(MaterialType.KeeseWing, 3), new Material(MaterialType.Rushroom, 3) }, 1);
-                climbingGear.SetUpgradeMaterials(new Material[] { new Material(MaterialType.ElectricKeeseWing, 5), new Material(MaterialType.HightailLizard, 5) }, 2);
-                climbingGear.SetUpgradeMaterials(new Material[] { new Material(MaterialType.HotFootedFrog, 10), new Material(MaterialType.IceKeeseWing, 8) }, 3);
-                climbingGear.SetUpgradeMaterials(new Material[] { new Material(MaterialType.SwiftViolet, 20), new Material(MaterialType.FireKeeseWing, 10) }, 4);
-                db.Armors.Add(climbersBandana);
-                var climbingBoots = new Armor("Climbing Boots", ArmorSet.Climbers, ArmorSlot.Legs, 3, Level.Base);
-                climbingBoots.SetUpgradeMaterials(new Material[] { new Material(MaterialType.KeeseWing, 3), new Material(MaterialType.Rushroom, 3) }, 1);
-                climbingBoots.SetUpgradeMaterials(new Material[] { new Material(MaterialType.ElectricKeeseWing, 5), new Material(MaterialType.HightailLizard, 5) }, 2);
-                climbingBoots.SetUpgradeMaterials(new Material[] { new Material(MaterialType.HotFootedFrog, 10), new Material(MaterialType.IceKeeseWing, 8) }, 3);
-                climbingBoots.SetUpgradeMaterials(new Material[] { new Material(MaterialType.SwiftViolet, 20), new Material(MaterialType.FireKeeseWing, 10) }, 4);
-                db.Armors.Add(climbersBandana);
+                var armorLines = System.IO.File.ReadAllLines("Content/Armor.csv");
+                for (int i = 0; i < armorLines.Length; i += 5)
+                {
+                    var parts = armorLines[i].Split(",");
+                    Armor armor = new()
+                    {
+                        Set = int.Parse(parts[1]),
+                        Slot = int.Parse(parts[2]),
+                        Name = parts[3]
+                    };
+                    armor.DefensePoints[0] = int.Parse(parts[0]);
+                    for (int j = 1; j < 5; j++)
+                    {
+                        parts = armorLines[i + j].Split(",");
+                        armor.DefensePoints[j] = int.Parse(parts[0]);
+                        List<string> materials = new();
+                        for (int k = 1; k < parts.Length; k += 2)
+                        {
+                            materials.Add(parts[k].Trim());
+                            materials.Add(parts[k + 1].Trim());
+                        }
+                        armor.UpgradeMaterials[j - 1] = materials.ToArray();
+                    }
+                }
             }
         }
     }

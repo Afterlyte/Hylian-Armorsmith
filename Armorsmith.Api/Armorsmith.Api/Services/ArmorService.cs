@@ -6,7 +6,7 @@ namespace Armorsmith.Api
     public class ArmorService
     {
         private readonly AppDbContext _db;
-        
+
         public ArmorService(AppDbContext db)
         {
             _db = db;
