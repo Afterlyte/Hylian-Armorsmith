@@ -4,7 +4,11 @@
       <v-card width="480" class="pa-4">
         <v-card-title>{{ a.name }}</v-card-title>
         <v-card-subtitle>Current Level {{ currentLevels[i] }}</v-card-subtitle>
-        <v-radio-group v-model="currentLevels[i]" inline @update:model-value="updateMaterialList">
+        <v-radio-group
+          v-model="currentLevels[i]"
+          inline
+          @update:model-value="updateMaterialList"
+        >
           <v-radio label="Base" value="0"></v-radio>
           <v-radio label="Level 1" value="1"></v-radio>
           <v-radio label="Level 2" value="2"></v-radio>
@@ -12,7 +16,11 @@
           <v-radio label="Level 4" value="4"></v-radio>
         </v-radio-group>
         <v-card-subtitle>Goal Level {{ goalLevels[i] }}</v-card-subtitle>
-        <v-radio-group v-model="goalLevels[i]" inline @update:model-value="updateMaterialList">
+        <v-radio-group
+          v-model="goalLevels[i]"
+          inline
+          @update:model-value="updateMaterialList"
+        >
           <v-radio label="Base" value="0"></v-radio>
           <v-radio label="Level 1" value="1"></v-radio>
           <v-radio label="Level 2" value="2"></v-radio>
@@ -30,14 +38,13 @@ import { Material, MaterialType } from "@/scripts/material";
 import { store } from "@/scripts/store";
 import { computed, ref } from "vue";
 
-
 store.loadMaterials();
-let armorList = Array<Armor>(2);
-const currentLevels = ref(new Array<number>(armorList.length));
-const goalLevels = ref(new Array<number>(armorList.length));
+let armorList = ref(Array<Armor>(2));
+const currentLevels = ref(new Array<number>(armorList.value.length));
+const goalLevels = ref(new Array<number>(armorList.value.length));
 
 armorList = ref([
-  new Armor(ArmorSet.Climbers, ArmorSlot.Body, "Climbing Gear", 3, Level.Base, [
+  new Armor(ArmorSet.Hylian, ArmorSlot.Body, "Climbing Gear", 3, Level.Base, [
     [],
     [
       new Material(MaterialType.BokoblinHorn, 3),
@@ -61,7 +68,7 @@ armorList = ref([
     ],
   ]),
   new Armor(
-    ArmorSet.Climbers,
+    ArmorSet.Climbing,
     ArmorSlot.Head,
     "Climber's Bandana",
     3,
@@ -96,12 +103,12 @@ console.log(goalLevels.value);
 
 function updateMaterialList() {
   store.loadMaterials();
-  for (let i=0; i<armorList.length; i++) {
-    for (let j=currentLevels.value[i]+1; j<=goalLevels.value[i]; j++) {
-      console.log(armorList[i].upgradeMaterials[j]);
-      /*for(let k=0; k<armorList[i].upgradeMaterials[j].length; k++) {
-        store.addMaterial(armorList[i].upgradeMaterials[j][k]);
-      }*/
+  for (let i = 0; i < armorList.value.length; i++) {
+    for (let j = +currentLevels.value[i] + +1; j <= goalLevels.value[i]; j++) {
+      console.log(armorList.value[i].upgradeMaterials[j]);
+      for (let k = 0; k < armorList.value[i].upgradeMaterials[j].length; k++) {
+        store.addMaterial(armorList.value[i].upgradeMaterials[j][k]);
+      }
     }
   }
   //console.log(store.materialList);
