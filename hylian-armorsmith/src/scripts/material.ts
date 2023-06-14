@@ -1,4 +1,5 @@
 export enum MaterialType {
+  Rupee = "Rupee",
   BokoblinHorn = "Bokoblin Horn",
   BlueBokoblinHorn = "Blue Bokoblin Horn",
   BokoblinFang = "Bokoblin Fang",

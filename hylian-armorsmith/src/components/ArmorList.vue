@@ -58,10 +58,10 @@ import { watch } from "vue";
 import { ref } from "vue";
 
 store.loadMaterials();
-const armorList = ref(Array<Armor>());
-const subArmorList = ref(Array<Armor>());
-const currentLevels = ref(Array<number>());
-const goalLevels = ref(Array<number>());
+const armorList = ref<Array<Armor>>([]);
+const subArmorList = ref<Array<Armor>>([]);
+const currentLevels = ref<Array<number>>([]);
+const goalLevels = ref<Array<number>>([]);
 const obtained = ref<Array<boolean>>([]);
 
 const props = defineProps<{
@@ -82,6 +82,7 @@ watch(
     })
       .then((response) => {
         armorList.value = response.data as Armor[];
+        updateMaterialList();
         console.log(armorList.value);
       })
       .catch((e) => {
@@ -123,6 +124,5 @@ function updateMaterialList() {
       }
     });
   }
-  //console.log(store.materialList);
 }
 </script>
