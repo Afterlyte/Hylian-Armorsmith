@@ -15,8 +15,8 @@ namespace Armorsmith.Api.Migrations
                 columns: table => new
                 {
                     Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Set = table.Column<int>(type: "int", nullable: false),
-                    Slot = table.Column<int>(type: "int", nullable: false)
+                    Set = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Slot = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

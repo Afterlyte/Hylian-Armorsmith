@@ -21,12 +21,12 @@ namespace Armorsmith.Api.Controllers
         }
 
         [HttpPost("FilteredArmorList")]
-        public async Task<List<Armor>> GetFilteredArmorList(int[] setFilters, bool head, bool body, bool legs)
+        public async Task<List<Armor>> GetFilteredArmorList(string[] setFilters, bool head, bool body, bool legs)
         {
-            List<int> slots = new List<int>();
-            if (head) slots.Add(0);
-            if (body) slots.Add(1);
-            if (legs) slots.Add(2);
+            List<string> slots = new();
+            if (head) slots.Add("Head");
+            if (body) slots.Add("Body");
+            if (legs) slots.Add("Legs");
             return await _armorService.GetFilteredArmorListAsync(setFilters, slots.ToArray());
         }
     }

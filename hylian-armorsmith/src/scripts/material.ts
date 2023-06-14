@@ -6,15 +6,17 @@ export enum MaterialType {
 }
 
 export class Material {
-  type: MaterialType;
+  level: number = 0;
+  material: MaterialType;
   count: number;
 
-  constructor(type: MaterialType, count: number) {
-    this.type = type ?? MaterialType.None;
+  constructor(type: MaterialType, count: number, level: number) {
+    this.material = type ?? MaterialType.None;
     this.count = count;
+    this.level = level;
   }
 
   get typeName() {
-    return this.type.toString();
+    return this.material.toString();
   }
 }

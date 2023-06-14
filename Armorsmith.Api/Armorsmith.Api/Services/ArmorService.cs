@@ -22,7 +22,7 @@ namespace Armorsmith.Api
             return armor;
         }
 
-        internal async Task<List<Armor>> GetFilteredArmorListAsync(int[] setFilters, int[] slotFilters)
+        internal async Task<List<Armor>> GetFilteredArmorListAsync(string[] setFilters, string[] slotFilters)
         {
             return await _db.Armors
                 .Include(a => a.DefensePoints)

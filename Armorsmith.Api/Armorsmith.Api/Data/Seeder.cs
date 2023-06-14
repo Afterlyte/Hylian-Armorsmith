@@ -17,8 +17,8 @@
                     var parts = armorLines[i].Split(",");
                     Armor armor = new()
                     {
-                        Set = int.Parse(parts[1]),
-                        Slot = int.Parse(parts[2]),
+                        Set = parts[1],
+                        Slot = parts[2],
                         Name = parts[3]
                     };
                     armor.DefensePoints.Add(new()

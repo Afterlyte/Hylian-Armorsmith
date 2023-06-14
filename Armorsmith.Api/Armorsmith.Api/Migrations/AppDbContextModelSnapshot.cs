@@ -26,11 +26,11 @@ namespace Armorsmith.Api.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Set")
-                        .HasColumnType("int");
+                    b.Property<string>("Set")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Slot")
-                        .HasColumnType("int");
+                    b.Property<string>("Slot")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Name");
 

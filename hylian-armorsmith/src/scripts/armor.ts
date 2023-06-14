@@ -1,98 +1,75 @@
 import { Material } from "./material";
 
 export enum ArmorSlot {
-  Head = 0,
-  Body = 1,
-  Legs = 2,
+  Head = "Head",
+  Body = "Body",
+  Legs = "Legs",
 }
 
 export enum ArmorSet {
-  None = -1,
-  Awakening = 0,
-  Barbarian = 1,
-  Charged = 2,
-  Climbing = 3,
-  Dark = 4,
-  Depths = 5,
-  DesertVoe = 6,
-  Ember = 7,
-  FierceDeity = 8,
-  Flamebreaker = 9,
-  Froggy = 10,
-  Frostbite = 11,
-  Glide = 12,
-  Hero = 13,
-  Hylian = 14,
-  Miner = 15,
-  Radiant = 16,
-  RoyalGuard = 17,
-  Rubber = 18,
-  Sky = 19,
-  Snowquill = 20,
-  Soldier = 21,
-  Stealth = 22,
-  Time = 23,
-  Twilight = 24,
-  Wild = 25,
-  Wind = 26,
-  Yiga = 27,
-  Zonaite = 28,
-  Zora = 29,
-  AmberEarrings = 30,
-  AncientHerosAspects = 31,
-  ChampionsTunic = 32,
-  DiamondCirclet = 33,
-  OpalEarrings = 34,
-  RubyCirclet = 35,
-  SandBoots = 36,
-  SapphireCirclet = 37,
-  SheiksMask = 38,
-  SnowBoots = 39,
-  TopazEarrings = 40,
-  TunicOfMemories = 41,
-  VahMedohDivineHelm = 42,
-  VahNaborisDivineHelm = 43,
-  VahRudaniaDivineHelm = 44,
-  VahRutaDivineHelm = 45,
-}
-
-export enum Level {
-  Base = 0,
-  LevelOne = 1,
-  LevelTwo = 2,
-  LevelThree = 3,
-  LevelFour = 4,
+  Archaic = "Archaic",
+  Barbarian = "Barbarian",
+  Charged = "Charged",
+  Climbing = "Climbing",
+  Dark = "Dark",
+  Depths = "Depths",
+  DesertVoe = "Desert Voe",
+  Ember = "Ember",
+  EvilSpirit = "Evil Sprit",
+  FierceDeity = "Fierce Deity",
+  Flamebreaker = "Flamebreaker",
+  Froggy = "Froggy",
+  Frostbite = "Frostbite",
+  Glide = "Glide",
+  HeroOfAwakening = "Hero of Awakening",
+  HeroOfTheSky = "Hero of the Sky",
+  HeroOfTheWild = "Hero of the Wild",
+  HeroOfTime = "Hero of Time",
+  HeroOfTwilight = "Hero of Twilight",
+  HeroOfWinds = "Hero of Winds",
+  Hero = "Hero",
+  Hylian = "Hylian",
+  Miner = "Miner",
+  Mystic = "Mystic",
+  Phantom = "Phantom",
+  Radiant = "Radiant",
+  RoyalGuard = "Royal Guard",
+  Rubber = "Rubber",
+  Snowquill = "Snowquill",
+  Soldier = "Soldier",
+  Stealth = "Stealth",
+  Tingle = "Tingle",
+  Yiga = "Yiga",
+  Zonaite = "Zonaite",
+  Zora = "Zora",
+  Jewelry = "Jewelry",
+  Boots = "Boots",
+  Masks = "Masks",
+  DivineHelms = "Divine Helms",
+  Miscellaneous = "Miscellaneous",
 }
 
 export class Armor {
+  id: number = -1;
+  name: string;
   set: ArmorSet;
   slot: ArmorSlot;
-  name: string;
-  defensePoints: number;
-  level: Level;
-  upgradeMaterials: Material[][];
+  defensePoints: Array<number>;
+  upgradeMaterials: Array<Material>;
 
   constructor(
-    set: ArmorSet = ArmorSet.None,
+    id: number,
+    set: ArmorSet = ArmorSet.Miscellaneous,
     slot: ArmorSlot,
     name: string,
-    defensePoints: number,
-    level: Level = Level.Base,
-    upgradeMaterials: Material[][]
+    defensePoints: Array<number>,
+    upgradeMaterials: Array<Material>
   ) {
+    this.id = id;
     this.set = set;
     this.slot = slot;
     this.name = name;
     this.defensePoints = defensePoints;
-    this.level = level;
     this.upgradeMaterials = upgradeMaterials;
-  }
-
-  upgradeLevelMaterials(upgradeLevel: number): Array<Material> {
-    return this.upgradeMaterials[upgradeLevel - 1];
-  }
-
-  get id(): number {
-    return this.set.valueOf() * 3 + this.slot.valueOf();
   }
 }

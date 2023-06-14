@@ -12,6 +12,9 @@ import { createApp } from "vue";
 
 // Plugins
 import { registerPlugins } from "@/plugins";
+import Axios from "axios";
+
+Axios.defaults.baseURL = "https://localhost:7113/";
 
 const app = createApp(App);
 

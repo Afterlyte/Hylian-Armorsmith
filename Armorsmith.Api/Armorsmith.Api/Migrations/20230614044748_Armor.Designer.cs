@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Armorsmith.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230613201256_Armor")]
+    [Migration("20230614044748_Armor")]
     partial class Armor
     {
         /// <inheritdoc />
@@ -29,11 +29,11 @@ namespace Armorsmith.Api.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Set")
-                        .HasColumnType("int");
+                    b.Property<string>("Set")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Slot")
-                        .HasColumnType("int");
+                    b.Property<string>("Slot")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Name");
 
