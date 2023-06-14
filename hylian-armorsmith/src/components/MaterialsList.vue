@@ -5,9 +5,9 @@
         <div class="text-center">Materials List</div>
       </v-card-title>
       <v-list class="pb-4">
-        <div v-for="m in store.materialList" :key="m.typeName">
+        <div v-for="m in store.materialList" :key="m.material">
           <v-row class="justify-center pt-1 pb-1" v-if="m.count > 0">
-            {{ m.typeName }}: {{ m.count }}
+            {{ m.material }}: {{ m.count }}
           </v-row>
         </div>
       </v-list>

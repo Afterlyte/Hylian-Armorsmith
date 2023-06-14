@@ -14,13 +14,15 @@ namespace Armorsmith.Api.Migrations
                 name: "Armors",
                 columns: table => new
                 {
-                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Set = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Slot = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Armors", x => x.Name);
+                    table.PrimaryKey("PK_Armors", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -30,16 +32,16 @@ namespace Armorsmith.Api.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DefensePoints = table.Column<int>(type: "int", nullable: false),
-                    ArmorName = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    ArmorId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Defense", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Defense_Armors_ArmorName",
-                        column: x => x.ArmorName,
+                        name: "FK_Defense_Armors_ArmorId",
+                        column: x => x.ArmorId,
                         principalTable: "Armors",
-                        principalColumn: "Name");
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -51,27 +53,27 @@ namespace Armorsmith.Api.Migrations
                     Level = table.Column<int>(type: "int", nullable: false),
                     Material = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Count = table.Column<int>(type: "int", nullable: false),
-                    ArmorName = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    ArmorId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MaterialValue", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MaterialValue_Armors_ArmorName",
-                        column: x => x.ArmorName,
+                        name: "FK_MaterialValue_Armors_ArmorId",
+                        column: x => x.ArmorId,
                         principalTable: "Armors",
-                        principalColumn: "Name");
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Defense_ArmorName",
+                name: "IX_Defense_ArmorId",
                 table: "Defense",
-                column: "ArmorName");
+                column: "ArmorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MaterialValue_ArmorName",
+                name: "IX_MaterialValue_ArmorId",
                 table: "MaterialValue",
-                column: "ArmorName");
+                column: "ArmorId");
         }
 
         /// <inheritdoc />

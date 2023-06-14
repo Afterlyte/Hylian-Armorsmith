@@ -1,32 +1,49 @@
 <template>
   <div class="d-flex flex-column">
-    <v-row v-for="(a, i) in armorList" :key="a.name" class="px-6 pt-6">
-      <v-card width="480" class="pa-4">
+    <v-row v-for="a in armorList" :key="a.id" class="ml-4 mt-4 mb-1">
+      <v-card height="100" width="250" class="">
         <v-card-title>{{ a.name }}</v-card-title>
-        <v-card-subtitle>Current Level {{ currentLevels[i] }}</v-card-subtitle>
-        <v-radio-group
-          v-model="currentLevels[i]"
-          inline
+        <v-checkbox
+          label="Obtained"
+          v-model="obtained[a.id]"
           @update:model-value="updateMaterialList"
-        >
-          <v-radio label="Base" value="0"></v-radio>
-          <v-radio label="Level 1" value="1"></v-radio>
-          <v-radio label="Level 2" value="2"></v-radio>
-          <v-radio label="Level 3" value="3"></v-radio>
-          <v-radio label="Level 4" value="4"></v-radio>
-        </v-radio-group>
-        <v-card-subtitle>Goal Level {{ goalLevels[i] }}</v-card-subtitle>
-        <v-radio-group
-          v-model="goalLevels[i]"
-          inline
-          @update:model-value="updateMaterialList"
-        >
-          <v-radio label="Base" value="0"></v-radio>
-          <v-radio label="Level 1" value="1"></v-radio>
-          <v-radio label="Level 2" value="2"></v-radio>
-          <v-radio label="Level 3" value="3"></v-radio>
-          <v-radio label="Level 4" value="4"></v-radio>
-        </v-radio-group>
+        ></v-checkbox>
+      </v-card>
+      <v-card height="100" class="">
+        <v-card-title>Current Level {{ currentLevels[a.id] }}</v-card-title>
+        <v-card-actions>
+          <v-radio-group
+            v-model="currentLevels[a.id]"
+            inline
+            dense
+            @update:model-value="updateMaterialList"
+            :disabled="!obtained[a.id]"
+          >
+            <v-radio label="Base" value="0"></v-radio>
+            <v-radio label="Level 1" value="1"></v-radio>
+            <v-radio label="Level 2" value="2"></v-radio>
+            <v-radio label="Level 3" value="3"></v-radio>
+            <v-radio label="Level 4" value="4"></v-radio>
+          </v-radio-group>
+        </v-card-actions>
+      </v-card>
+      <v-card height="100" class="">
+        <v-card-title>Goal Level {{ goalLevels[a.id] }}</v-card-title>
+        <v-card-actions>
+          <v-radio-group
+            v-model="goalLevels[a.id]"
+            inline
+            dense
+            @update:model-value="updateMaterialList"
+            :disabled="!obtained[a.id]"
+          >
+            <v-radio label="Base" value="0"></v-radio>
+            <v-radio label="Level 1" value="1"></v-radio>
+            <v-radio label="Level 2" value="2"></v-radio>
+            <v-radio label="Level 3" value="3"></v-radio>
+            <v-radio label="Level 4" value="4"></v-radio>
+          </v-radio-group>
+        </v-card-actions>
       </v-card>
     </v-row>
   </div>
@@ -41,9 +58,11 @@ import { watch } from "vue";
 import { ref } from "vue";
 
 store.loadMaterials();
-let armorList = ref(Array<Armor>());
-const currentLevels = ref(new Array<number>(armorList.value.length));
-const goalLevels = ref(new Array<number>(armorList.value.length));
+const armorList = ref(Array<Armor>());
+const subArmorList = ref(Array<Armor>());
+const currentLevels = ref(Array<number>());
+const goalLevels = ref(Array<number>());
+const obtained = ref<Array<boolean>>([]);
 
 const props = defineProps<{
   slotValues: string[];
@@ -51,88 +70,59 @@ const props = defineProps<{
 }>();
 
 watch(
-  () => [props.setValues, props.slotValues],
+  () => [props.setValues, props.slotValues, obtained.value],
   () => {
-    const config = {
-      headers: {
+    console.log(props.setValues, props.slotValues);
+    Axios.post("/Armor/FilteredArmorList", props.setValues, {
+      params: {
         head: props.slotValues.includes("Head"),
         body: props.slotValues.includes("Body"),
         legs: props.slotValues.includes("Legs"),
       },
-      data: {
-        setFilters: props.setValues,
-      },
-    };
-    Axios.post("/Armor/GetFilteredArmorList", config).then((response) => {
-      armorList.value = response.data as Armor[];
-    });
-  }
+    })
+      .then((response) => {
+        armorList.value = response.data as Armor[];
+        console.log(armorList.value);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  },
+  { immediate: true }
 );
 
-armorList = ref([
-  new Armor(
-    0,
-    ArmorSet.Hylian,
-    ArmorSlot.Body,
-    "Climbing Gear",
-    [3, 6, 9, 12, 15],
-    [
-      new Material(MaterialType.BokoblinHorn, 3, 1),
-      new Material(MaterialType.ChuchuJelly, 3, 1),
-      new Material(MaterialType.LynelGuts, 3, 1),
-      new Material(MaterialType.BokoblinHorn, 3, 2),
-      new Material(MaterialType.ChuchuJelly, 3, 2),
-      new Material(MaterialType.LynelGuts, 3, 2),
-      new Material(MaterialType.BokoblinHorn, 3, 3),
-      new Material(MaterialType.ChuchuJelly, 3, 3),
-      new Material(MaterialType.LynelGuts, 3, 3),
-      new Material(MaterialType.BokoblinHorn, 3, 4),
-      new Material(MaterialType.ChuchuJelly, 3, 4),
-      new Material(MaterialType.LynelGuts, 3, 4),
-    ]
-  ),
-  new Armor(
-    1,
-    ArmorSet.Climbing,
-    ArmorSlot.Head,
-    "Climber's Bandana",
-    [3, 6, 9, 12, 15],
-    [
-      new Material(MaterialType.BokoblinHorn, 3, 1),
-      new Material(MaterialType.ChuchuJelly, 3, 1),
-      new Material(MaterialType.LynelGuts, 3, 1),
-      new Material(MaterialType.BokoblinHorn, 3, 2),
-      new Material(MaterialType.ChuchuJelly, 3, 2),
-      new Material(MaterialType.LynelGuts, 3, 2),
-      new Material(MaterialType.BokoblinHorn, 3, 3),
-      new Material(MaterialType.ChuchuJelly, 3, 3),
-      new Material(MaterialType.LynelGuts, 3, 3),
-      new Material(MaterialType.BokoblinHorn, 3, 4),
-      new Material(MaterialType.ChuchuJelly, 3, 4),
-      new Material(MaterialType.LynelGuts, 3, 4),
-    ]
-  ),
-]);
-console.log(currentLevels.value);
-console.log(goalLevels.value);
+updateMaterialList();
 
 function updateMaterialList() {
   store.loadMaterials();
-  armorList.value.forEach((a) => {
-    for (
-      let j = +currentLevels.value[a.id] + 1;
-      j <= goalLevels.value[a.id];
-      j++
-    ) {
-      console.log(armorList.value[a.id].upgradeMaterials[j]);
-      let levelMaterials: Material[] = armorList.value[
-        a.id
-      ].upgradeMaterials.filter((m) => m.level == j);
-      levelMaterials.forEach((m) => {
-        store.addMaterial(m);
-      });
-    }
-  });
+  subArmorList.value = JSON.parse(
+    JSON.stringify(
+      armorList.value.filter((a) => obtained.value.at(a.id) == true)
+    )
+  ) as Armor[];
+
+  console.log(subArmorList.value);
+  if (subArmorList.value.length > 0) {
+    subArmorList.value.forEach((a) => {
+      for (let j = currentLevels.value[a.id]; j < goalLevels.value[a.id]; j++) {
+        console.log(j);
+        console.log(currentLevels.value);
+        console.log(a.id);
+        console.log(subArmorList.value.find((s) => s.id == a.id));
+        if (subArmorList.value.find((s) => s.id == a.id)) {
+          let armor: Armor = subArmorList.value.find(
+            (s) => s.id == a.id
+          ) as Armor;
+          let levelMaterials: Material[] = armor.upgradeMaterials.filter(
+            (m) => m.level == j
+          );
+          levelMaterials.forEach((m) => {
+            store.addMaterial(m);
+          });
+        }
+      }
+    });
+  }
   //console.log(store.materialList);
 }
 </script>

@@ -5,6 +5,7 @@ namespace Armorsmith.Api.Data
     public class Armor
     {
         [Key]
+        public int Id { get; set; }
         public string? Name { get; set; }
         public string? Set { get; set; }
         public string? Slot { get; set; }

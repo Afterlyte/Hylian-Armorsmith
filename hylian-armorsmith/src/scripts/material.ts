@@ -1,8 +1,11 @@
 export enum MaterialType {
-  None = "",
   BokoblinHorn = "Bokoblin Horn",
-  LynelGuts = "Lynel Guts",
-  ChuchuJelly = "Chuchu Jelly",
+  BlueBokoblinHorn = "Blue Bokoblin Horn",
+  BokoblinFang = "Bokoblin Fang",
+  Amber = "Amber",
+  BokoblinGuts = "Bokoblin Guts",
+  BlackBokoblinHorn = "Black Bokoblin Horn",
+  SilverBokoblinHorn = "Silver Bokoblin Horn",
 }
 
 export class Material {
@@ -11,12 +14,8 @@ export class Material {
   count: number;
 
   constructor(type: MaterialType, count: number, level: number) {
-    this.material = type ?? MaterialType.None;
+    this.material = type;
     this.count = count;
     this.level = level;
-  }
-
-  get typeName() {
-    return this.material.toString();
   }
 }
