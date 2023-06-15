@@ -1,45 +1,125 @@
-3,Hylian,Head,Hylian Hood
+1,Archaic,Body,Archaic Tunic,false
+1,Archaic,Legs,Archaic Legwear,false
+3,Hylian,Head,Hylian Hood,true
 5,BokoblinHorn,5,Rupee,10
 8,BlueBokoblinHorn,5,BokoblinFang,3,Rupee,50
 12,Amber,20,BokoblinGuts,3,BlackBokoblinHorn,5,Rupee,200
 20,Amber,30,BokoblinGuts,5,SilverBokoblinHorn,5,Rupee,500
-3,Hylian,Body,Hylian Tunic
+3,Hylian,Body,Hylian Tunic,true
 5,BokoblinHorn,5,Rupee,10
 8,BlueBokoblinHorn,5,BokoblinFang,3,Rupee,50
 12,Amber,20,BokoblinGuts,3,BlackBokoblinHorn,5,Rupee,200
 20,Amber,30,BokoblinGuts,5,SilverBokoblinHorn,5,Rupee,500
-3,Hylian,Legs,Hylian Trousers
+3,Hylian,Legs,Hylian Trousers,true
 5,BokoblinHorn,5,Rupee,10
 8,BlueBokoblinHorn,5,BokoblinFang,3,Rupee,50
 12,Amber,20,BokoblinGuts,3,BlackBokoblinHorn,5,Rupee,200
 20,Amber,30,BokoblinGuts,5,SilverBokoblinHorn,5,Rupee,500
-3,FierceDeity,Head,Fierce Deity Mask
-5,HinoxToenail,5,Rupee,10,DinraalScale,1
-8,HinoxTooth,5,Rupee,50,DinraalClaw,1
-12,HinoxGuts,2,Rupee,200,DinraalFang,1
-20,DinraalHorn,1,Rupee,500,LynelGuts,2
-3,FierceDeity,Body,Fierce Deity Armor
-5,HinoxToenail,5,Rupee,10,NaydraScale,1
-8,HinoxTooth,5,Rupee,50,NaydraClaw,1
-12,HinoxGuts,2,Rupee,200,NaydraFang,1
-20,NaydraHorn,1,Rupee,500,LynelGuts,2
-3,FierceDeity,Legs,Fierce Deity Boots
-5,HinoxToenail,5,Rupee,10,FaroshScale,1
-8,HinoxTooth,5,Rupee,50,FaroshClaw,1
-12,HinoxGuts,2,Rupee,200,FaroshFang,1
-20,FaroshHorn,1,Rupee,500,LynelGuts,2
-3,Climbing,Head,Climber's Bandana
+4,RoyalGuard,Head,Royal Guard Cap,true
+7,BossBokoblinHorn,3,BokoblinGuts,3,Rupee,10
+12,BlueBossBokoblinHorn,3,BossBokoblinGuts,3,Rupee,50
+18,BlackBossBokoblinHorn,3,HinoxGuts,3,Rupee,200
+28,SilverBossBokoblinHorn,3,MoldugaGuts,3,GleeokGuts,3,Rupee,500
+4,RoyalGuard,Body,Royal Guard Uniform,true
+7,BossBokoblinHorn,3,BokoblinGuts,3,Rupee,10
+12,BlueBossBokoblinHorn,3,BossBokoblinGuts,3,Rupee,50
+18,BlackBossBokoblinHorn,3,HinoxGuts,3,Rupee,200
+28,SilverBossBokoblinHorn,3,MoldugaGuts,3,GleeokGuts,3,Rupee,500
+4,RoyalGuard,Legs,Royal Guard Boots,true
+7,BossBokoblinHorn,3,BokoblinGuts,3,Rupee,10
+12,BlueBossBokoblinHorn,3,BossBokoblinGuts,3,Rupee,50
+18,BlackBossBokoblinHorn,3,HinoxGuts,3,Rupee,200
+28,SilverBossBokoblinHorn,3,MoldugaGuts,3,GleeokGuts,3,Rupee,500
+4,Soldiers,Head,Soldier's Helm,true
+7,ChuchuJelly,5,BokoblinGuts,3,Rupee,10
+12,KeeseEyeball,5,MoblinGuts,3,Rupee,50
+18,LizalfosTail,3,HinoxGuts,3,Flint,30,Rupee,200
+28,Amber,30,LynelHoof,5,LynelGuts,15,Rupee,500
+4,Soldiers,Body,Soldier's Armor,true
+7,ChuchuJelly,5,BokoblinGuts,3,Rupee,10
+12,KeeseEyeball,5,MoblinGuts,3,Rupee,50
+18,LizalfosTail,3,HinoxGuts,3,Flint,30,Rupee,200
+28,Amber,30,LynelHoof,5,LynelGuts,15,Rupee,500
+4,Soldiers,Legs,Soldier's Greaves,true
+7,ChuchuJelly,5,BokoblinGuts,3,Rupee,10
+12,KeeseEyeball,5,MoblinGuts,3,Rupee,50
+18,LizalfosTail,3,HinoxGuts,3,Flint,30,Rupee,200
+28,Amber,30,LynelHoof,5,LynelGuts,15,Rupee,500
+3,Awakening,Head,Mask of Awakening,true
+5,LuminousStone,10,StarFragment,1,Rupee,10
+8,LuminousStone,15,StarFragment,1,Rupee,50
+12,LuminousStone,20,StarFragment,1,Rupee,200
+20,LuminousStone,30,StarFragment,1,Rupee,500
+3,Awakening,Body,Tunic of Awakening,true
+5,LuminousStone,10,StarFragment,1,Rupee,10
+8,LuminousStone,15,StarFragment,1,Rupee,50
+12,LuminousStone,20,StarFragment,1,Rupee,200
+20,LuminousStone,30,StarFragment,1,Rupee,500
+3,Awakening,Legs,Trousers of Awakening,true
+5,LuminousStone,10,StarFragment,1,Rupee,10
+8,LuminousStone,15,StarFragment,1,Rupee,50
+12,LuminousStone,20,StarFragment,1,Rupee,200
+20,LuminousStone,30,StarFragment,1,Rupee,500
+3,Barbarian,Head,Barbarian Helm,true
+5,MightyThistle,3,Rupee,10
+8,LynelSaberHorn,2,LynelMaceHorn,2,Razorshroom,5,Rupee,50
+12,BlueManedLynelSaberHorn,3,BlueManedLynelMaceHorn,3,RazorclawCrab,3,Rupee,200
+20,WhiteManedLynelSaberHorn,3,WhiteManedLynelMaceHorn,3,BladedRhinoBeetle,3,Rupee,500
+3,Barbarian,Body,Barbarian Armor,true
+5,MightyThistle,3,Rupee,10
+8,LynelSaberHorn,2,LynelMaceHorn,2,Razorshroom,5,Rupee,50
+12,BlueManedLynelSaberHorn,3,BlueManedLynelMaceHorn,3,RazorclawCrab,3,Rupee,200
+20,WhiteManedLynelSaberHorn,3,WhiteManedLynelMaceHorn,3,BladedRhinoBeetle,3,Rupee,500
+3,Barbarian,Legs,Barbarian Leg Wraps,true
+5,MightyThistle,3,Rupee,10
+8,LynelSaberHorn,2,LynelMaceHorn,2,Razorshroom,5,Rupee,50
+12,BlueManedLynelSaberHorn,3,BlueManedLynelMaceHorn,3,RazorclawCrab,3,Rupee,200
+20,WhiteManedLynelSaberHorn,3,WhiteManedLynelMaceHorn,3,BladedRhinoBeetle,3,Rupee,500
+3,Charged,Head,Charged Headdress,true
+5,ShockFruit,3,Rupee,10
+8,ElectricLizalfosHorn,5,ThunderwingButterfly,3,Rupee,50
+12,LargeZonaiCharge,3,ShockLikeStone,5,ElectricDarner,5,Rupee,200
+20,GleeokThunderHorn,5,VoltfinTrout,10,LargeZonaiCharge,5,Rupee,500
+3,Charged,Body,Charged Shirt,true
+5,ShockFruit,3,Rupee,10
+8,ElectricLizalfosHorn,5,ThunderwingButterfly,3,Rupee,50
+12,LargeZonaiCharge,3,ShockLikeStone,5,ElectricDarner,5,Rupee,200
+20,GleeokThunderHorn,5,VoltfinTrout,10,LargeZonaiCharge,5,Rupee,500
+3,Charged,Legs,Charged Trousers,true
+5,ShockFruit,3,Rupee,10
+8,ElectricLizalfosHorn,5,ThunderwingButterfly,3,Rupee,50
+12,LargeZonaiCharge,3,ShockLikeStone,5,ElectricDarner,5,Rupee,200
+20,GleeokThunderHorn,5,VoltfinTrout,10,LargeZonaiCharge,5,Rupee,500
+3,Climbers,Head,Climber's Bandana,true
 5,KeeseWing,3,Rupee,10,Rushroom,3
 8,ElectricKeeseWing,5,Rupee,50,HightailLizard,5
 12,HotFootedFrog,10,Rupee,200,IceKeeseWing,8
 20,SwiftViolet,20,Rupee,500,FireKeeseWing,10
-3,Climbing,Body,Climbing Gear
+3,Climbers,Body,Climbing Gear,true
 5,KeeseWing,3,Rupee,10,Rushroom,3
 8,ElectricKeeseWing,5,Rupee,50,HightailLizard,5
 12,HotFootedFrog,10,Rupee,200,IceKeeseWing,8
 20,SwiftViolet,20,Rupee,500,FireKeeseWing,10
-3,Climbing,Legs,Climbing Boots
+3,Climbers,Legs,Climbing Boots,true
 5,KeeseWing,3,Rupee,10,Rushroom,3
 8,ElectricKeeseWing,5,Rupee,50,HightailLizard,5
 12,HotFootedFrog,10,Rupee,200,IceKeeseWing,8
 20,SwiftViolet,20,Rupee,500,FireKeeseWing,10
+3,Dark,Head,Dark Hood,false
+3,Dark,Body,Dark Tunic,false
+3,Dark,Legs,Dark Trousers,false
+3,Depths,Head,Hood of the Depths,true
+5,DeepFirefly,3,Rupee,10
+8,DarkClump,5,FroxFang,3,Rupee,50
+12,FroxFingernail,3,ObsidianFroxFang,3,Zonaite,20,Rupee,200
+20,BlueWhiteFroxFang,5,LargeZonaite,10,Sapphire,5,Rupee,500
+3,Depths,Body,Tunic of the Depths,true
+5,DeepFirefly,3,Rupee,10
+8,DarkClump,5,FroxFang,3,Rupee,50
+12,FroxFingernail,3,ObsidianFroxFang,3,Zonaite,20,Rupee,200
+20,BlueWhiteFroxFang,5,LargeZonaite,10,Sapphire,5,Rupee,500
+3,Depths,Legs,Gaiters of the Depths,true
+5,DeepFirefly,3,Rupee,10
+8,DarkClump,5,FroxFang,3,Rupee,50
+12,FroxFingernail,3,ObsidianFroxFang,3,Zonaite,20,Rupee,200
+20,BlueWhiteFroxFang,5,LargeZonaite,10,Sapphire,5,Rupee,500

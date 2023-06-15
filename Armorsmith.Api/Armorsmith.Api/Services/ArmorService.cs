@@ -22,12 +22,19 @@ namespace Armorsmith.Api
             return armor;
         }
 
-        internal async Task<List<Armor>> GetFilteredArmorListAsync(string[] setFilters, string[] slotFilters)
+        public async Task<List<Armor>> GetFilteredArmorListAsync(string[] setFilters, string[] slotFilters)
         {
             return await _db.Armors
                 .Include(a => a.DefensePoints)
                 .Include(a => a.UpgradeMaterials)
                 .Where(a => setFilters.Contains(a.Set) && slotFilters.Contains(a.Slot)).ToListAsync();
+        }
+
+        public async Task<List<string>> GetFullMaterialListAsync()
+        {
+            List<string> materials = new();
+            await _db.Armors.Include(a => a.UpgradeMaterials).ForEachAsync(a => a.UpgradeMaterials.ForEach(m => materials.Add(m.Material!)));
+            return materials.Distinct().OrderBy(m => m).ToList();
         }
     }
 }

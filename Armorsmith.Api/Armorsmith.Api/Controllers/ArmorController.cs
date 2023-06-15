@@ -29,5 +29,11 @@ namespace Armorsmith.Api.Controllers
             if (legs) slots.Add("Legs");
             return await _armorService.GetFilteredArmorListAsync(setFilters, slots.ToArray());
         }
+
+        [HttpGet("FullMaterialList")]
+        public async Task<List<string>> GetFullMaterialList()
+        {
+            return await _armorService.GetFullMaterialListAsync();
+        }
     }
 }

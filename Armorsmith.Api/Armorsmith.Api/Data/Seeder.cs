@@ -12,7 +12,7 @@
             var armorLines = System.IO.File.ReadAllLines("Content/Armor.csv");
             if (db.Armors.Count() < armorLines.Length / 5)
             {
-                for (int i = 0; i < armorLines.Length; i += 5)
+                for (int i = 0; i < armorLines.Length; i++)
                 {
                     var parts = armorLines[i].Split(",");
                     Armor armor = new()
@@ -25,6 +25,8 @@
                     {
                         DefensePoints = int.Parse(parts[0])
                     });
+                        if (parts[4] == "true")
+                        {
                     for (int j = 1; j < 5; j++)
                     {
                         parts = armorLines[i + j].Split(",");
@@ -41,7 +43,9 @@
                                 Count = int.Parse(parts[k + 1])
                             });
                         }
+                        }
                     }
+                    if(armor.DefensePoints.Count == 5) i += 4;
                     db.Armors.Add(armor);
                 }
                 db.SaveChanges();

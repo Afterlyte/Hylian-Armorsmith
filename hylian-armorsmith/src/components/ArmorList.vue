@@ -10,8 +10,11 @@
         ></v-checkbox>
       </v-card>
       <v-card height="100" class="parchment mr-2">
-        <v-card-title>Current Level {{ currentLevels[a.id] }}</v-card-title>
-        <v-card-actions>
+        <v-card-title v-if="a.upgradeMaterials.length > 0"
+          >Current Level {{ currentLevels[a.id] }}</v-card-title
+        >
+        <v-card-title v-else>No upgrades available</v-card-title>
+        <v-card-actions v-if="a.upgradeMaterials.length > 0">
           <v-radio-group
             v-model="currentLevels[a.id]"
             inline
@@ -27,7 +30,11 @@
           </v-radio-group>
         </v-card-actions>
       </v-card>
-      <v-card height="100" class="parchment">
+      <v-card
+        height="100"
+        class="parchment"
+        v-if="a.upgradeMaterials.length > 0"
+      >
         <v-card-title>Goal Level {{ goalLevels[a.id] }}</v-card-title>
         <v-card-actions>
           <v-radio-group
