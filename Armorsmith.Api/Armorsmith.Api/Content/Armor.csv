@@ -13,3 +13,33 @@
 8,BlueBokoblinHorn,5,BokoblinFang,3
 12,Amber,20,BokoblinGuts,3,BlackBokoblinHorn,5
 20,Amber,30,BokoblinGuts,5,SilverBokoblinHorn,5
+3,FierceDeity,Head,Fierce Deity Mask
+5,HinoxToenail,5,Rupee,10,DinraalScale,1
+8,HinoxTooth,5,Rupee,50,DinraalClaw,1
+12,HinoxGuts,2,Rupee,200,DinraalFang,1
+20,DinraalHorn,1,Rupee,500,LynelGuts,2
+3,FierceDeity,Body,Fierce Deity Armor
+5,HinoxToenail,5,Rupee,10,NaydraScale,1
+8,HinoxTooth,5,Rupee,50,NaydraClaw,1
+12,HinoxGuts,2,Rupee,200,NaydraFang,1
+20,NaydraHorn,1,Rupee,500,LynelGuts,2
+3,FierceDeity,Legs,Fierce Deity Boots
+5,HinoxToenail,5,Rupee,10,FaroshScale,1
+8,HinoxTooth,5,Rupee,50,FaroshClaw,1
+12,HinoxGuts,2,Rupee,200,FaroshFang,1
+20,FaroshHorn,1,Rupee,500,LynelGuts,2
+3,Climbing,Head,Climber's Bandana
+5,KeeseWing,3,Rupee,10,Rushroom,3
+8,ElectricKeeseWing,5,Rupee,50,HightailLizard,5
+12,HotFootedFrog,10,Rupee,200,IceKeeseWing,8
+20,SwiftViolet,20,Rupee,500,FireKeeseWing,10
+3,Climbing,Body,Climbing Gear
+5,KeeseWing,3,Rupee,10,Rushroom,3
+8,ElectricKeeseWing,5,Rupee,50,HightailLizard,5
+12,HotFootedFrog,10,Rupee,200,IceKeeseWing,8
+20,SwiftViolet,20,Rupee,500,FireKeeseWing,10
+3,Climbing,Legs,Climbing Boots
+5,KeeseWing,3,Rupee,10,Rushroom,3
+8,ElectricKeeseWing,5,Rupee,50,HightailLizard,5
+12,HotFootedFrog,10,Rupee,200,IceKeeseWing,8
+20,SwiftViolet,20,Rupee,500,FireKeeseWing,10

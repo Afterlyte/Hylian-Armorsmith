@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Armorsmith.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230614204550_Armor")]
+    [Migration("20230614234358_Armor")]
     partial class Armor
     {
         /// <inheritdoc />

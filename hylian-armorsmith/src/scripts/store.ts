@@ -22,5 +22,8 @@ export const store = reactive({
     this.materialList.push(
       new Material(material.material, material.count, material.level)
     );
+    this.materialList.sort((a, b) =>
+      a.material.toString() > b.material.toString() ? 1 : -1
+    );
   },
 });
