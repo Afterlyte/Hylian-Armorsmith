@@ -1,11 +1,11 @@
 <template>
   <v-card class="mt-16 h-100">
     <v-layout :full-height="true">
-      <v-navigation-drawer width="250">
+      <v-navigation-drawer width="250" color="transparent" border="none">
         <v-divider></v-divider>
         <v-card
           prepend-icon="mdi-filter"
-          class="justify-center ma-4"
+          class="justify-center ma-4 parchment"
           title="Filters"
         >
           <v-container fluid>
@@ -47,6 +47,13 @@
     </v-layout>
   </v-card>
 </template>
+
+<style>
+.v-card.parchment {
+  background: url("https://media.istockphoto.com/id/1250557985/vector/old-paper-texture.jpg?s=612x612&w=0&k=20&c=qpt_8PVjduFqgCCUFw3Inzv6Ev2wHqChfgBRy1aMsXg=")
+    no-repeat center;
+}
+</style>
 
 <script setup lang="ts">
 import MaterialsList from "@/components/MaterialsList.vue";

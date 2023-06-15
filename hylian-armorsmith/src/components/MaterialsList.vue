@@ -1,6 +1,6 @@
 <template>
   <div class="ml-4 mr-4">
-    <v-card class="pt-2 pb-2 justify-center">
+    <v-card class="pt-2 pb-2 justify-center parchment">
       <v-card-title class="pb-2">
         <div class="text-center">Materials List</div>
       </v-card-title>

@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-dialog v-model="signInDialogue" persistent max-width="600px">
+    <!--<v-dialog v-model="signInDialogue" persistent max-width="600px">
       <v-card>
         <v-card-title>Sign In</v-card-title>
         <v-card-text>
@@ -58,10 +58,10 @@
           <v-btn color="primary" @click="signUp">Sign Up</v-btn>
         </v-card-actions>
       </v-card>
-    </v-dialog>
+    </v-dialog>-->
     <v-app-bar title="Hylian Armorsmith">
-      <div v-if="!signedIn">
-        <v-btn
+      <!--<div v-if="!signedIn">
+        --<v-btn
           icon="mdi-account-outline"
           @click="signInDialogue = true"
         ></v-btn>
@@ -78,11 +78,19 @@
             </v-list-item>
           </v-list>
         </v-menu>
-      </div>
+      </div>-->
     </v-app-bar>
     <router-view />
   </v-app>
 </template>
+
+<style>
+main {
+  background: url("https://assets-prd.ignimgs.com/2022/09/15/zelda-tears-of-the-kingdom-gameplay-trailer-ign-33-1663229227975.jpg")
+    no-repeat center;
+  background-size: cover;
+}
+</style>
 
 <script lang="ts" setup>
 import { ref } from "vue";

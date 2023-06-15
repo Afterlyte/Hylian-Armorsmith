@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column">
     <v-row v-for="a in armorList" :key="a.id" class="ml-4 mt-4 mb-1">
-      <v-card height="100" width="250" class="">
+      <v-card height="100" width="250" class="parchment">
         <v-card-title>{{ a.name }}</v-card-title>
         <v-checkbox
           label="Obtained"
@@ -9,7 +9,7 @@
           @update:model-value="updateMaterialList"
         ></v-checkbox>
       </v-card>
-      <v-card height="100" class="">
+      <v-card height="100" class="parchment">
         <v-card-title>Current Level {{ currentLevels[a.id] }}</v-card-title>
         <v-card-actions>
           <v-radio-group
@@ -27,7 +27,7 @@
           </v-radio-group>
         </v-card-actions>
       </v-card>
-      <v-card height="100" class="">
+      <v-card height="100" class="parchment">
         <v-card-title>Goal Level {{ goalLevels[a.id] }}</v-card-title>
         <v-card-actions>
           <v-radio-group
