@@ -60,30 +60,35 @@ import { ref } from "vue";
 store.loadMaterials();
 const armorList = ref<Array<Armor>>([]);
 const subArmorList = ref<Array<Armor>>([]);
-const currentLevels = ref<Array<number>>(
-  []
-  /*   JSON.parse(
-    (localStorage.getItem("current") as string) == "undefined"
+const currentLevels = ref<Array<number>>([]);
+const goalLevels = ref<Array<number>>([]);
+const obtained = ref<Array<boolean>>([]);
+
+initUserData();
+
+function initUserData() {
+  if (localStorage.getItem("obtained") == null) {
+    localStorage.clear();
+    localStorage.setItem("obtained", JSON.stringify(new Array<boolean>()));
+    localStorage.setItem("current", JSON.stringify(new Array<number>()));
+    localStorage.setItem("goal", JSON.stringify(new Array<number>()));
+  }
+  currentLevels.value = JSON.parse(
+    (localStorage.getItem("current") as string) === "undefined" || null
       ? "[]"
       : (localStorage.getItem("current") as string)
-  ) */
-);
-const goalLevels = ref<Array<number>>(
-  []
-  /*   JSON.parse(
-    (localStorage.getItem("goal") as string) == "undefined"
+  );
+  goalLevels.value = JSON.parse(
+    (localStorage.getItem("goal") as string) === "undefined" || null
       ? "[]"
       : (localStorage.getItem("goal") as string)
-  ) */
-);
-const obtained = ref<Array<boolean>>(
-  []
-  /*   JSON.parse(
-    (localStorage.getItem("obtained") as string) == "undefined"
+  );
+  obtained.value = JSON.parse(
+    (localStorage.getItem("obtained") as string) === "undefined" || null
       ? "[]"
       : (localStorage.getItem("obtained") as string)
-  ) */
-);
+  );
+}
 
 const props = defineProps<{
   slotValues: string[];
@@ -111,10 +116,13 @@ watch(
   { immediate: true }
 );
 
-updateMaterialList();
-
 function updateMaterialList() {
   store.loadMaterials();
+  console.log(
+    localStorage.getItem("obtained"),
+    localStorage.getItem("current"),
+    localStorage.getItem("goal")
+  );
   localStorage.setItem("obtained", JSON.stringify(obtained.value));
   localStorage.setItem("current", JSON.stringify(currentLevels.value));
   localStorage.setItem("goal", JSON.stringify(goalLevels.value));

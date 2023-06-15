@@ -58,11 +58,34 @@
 <script setup lang="ts">
 import MaterialsList from "@/components/MaterialsList.vue";
 import ArmorList from "@/components/ArmorList.vue";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { ArmorSet, ArmorSlot } from "@/scripts/armor";
 
 const slots = Object.keys(ArmorSlot);
-const slotValues = ref<Array<string>>(["Head", "Body", "Legs"]);
+const slotValues = ref<Array<string>>([]);
 const sets = Object.keys(ArmorSet);
-const setValues = ref<Array<string>>(["Hylian"]);
+const setValues = ref<Array<string>>([]);
+
+initUserData();
+
+function initUserData() {
+  slotValues.value = JSON.parse(
+    (localStorage.getItem("slots") as string) == null
+      ? '["Head", "Body", "Legs"]'
+      : (localStorage.getItem("slots") as string)
+  );
+  setValues.value = JSON.parse(
+    (localStorage.getItem("sets") as string) == null
+      ? '["Hylian"]'
+      : (localStorage.getItem("sets") as string)
+  );
+}
+
+watch(
+  () => [setValues.value, slotValues.value],
+  () => {
+    localStorage.setItem("sets", JSON.stringify(setValues.value));
+    localStorage.setItem("slots", JSON.stringify(slotValues.value));
+  }
+);
 </script>
