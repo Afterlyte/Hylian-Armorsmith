@@ -1,6 +1,11 @@
 <template>
   <div class="ml-4 mr-4">
-    <v-card class="pt-2 pb-2 justify-center parchment" background-size="cover">
+    <v-card
+      class="pt-2 pb-2 justify-center"
+      background-size="cover"
+      color="rgb(13,146,99)"
+      theme="dark"
+    >
       <v-card-title class="pb-2">
         <div class="text-center">Materials List</div>
       </v-card-title>

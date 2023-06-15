@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column">
     <v-row v-for="a in armorList" :key="a.id" class="ml-4 mt-4 mb-1">
-      <v-card height="100" width="250" class="parchment mr-2">
+      <v-card height="100" width="250" class="mr-2" color="rgb(255, 242, 212)">
         <v-card-title>{{ a.name }}</v-card-title>
         <v-checkbox
           label="Obtained"
@@ -9,7 +9,7 @@
           @update:model-value="updateMaterialList"
         ></v-checkbox>
       </v-card>
-      <v-card height="100" class="parchment mr-2">
+      <v-card height="100" class="mr-2" color="rgb(255, 242, 212)">
         <v-card-title v-if="a.upgradeMaterials.length > 0"
           >Current Level {{ currentLevels[a.id] }}</v-card-title
         >
@@ -32,7 +32,7 @@
       </v-card>
       <v-card
         height="100"
-        class="parchment"
+        color="rgb(255, 242, 212)"
         v-if="a.upgradeMaterials.length > 0"
       >
         <v-card-title>Goal Level {{ goalLevels[a.id] }}</v-card-title>
@@ -57,8 +57,8 @@
 </template>
 
 <script setup lang="ts">
-import { Armor, ArmorSet, ArmorSlot } from "@/scripts/armor";
-import { Material, MaterialType } from "@/scripts/material";
+import { Armor, testList } from "@/scripts/armor";
+import { Material } from "@/scripts/material";
 import { store } from "@/scripts/store";
 import Axios from "axios";
 import { watch } from "vue";
