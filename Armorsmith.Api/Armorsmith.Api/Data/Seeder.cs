@@ -9,9 +9,9 @@
 
         public static void SeedArmor(AppDbContext db)
         {
-            if (!db.Armors.Any())
+            var armorLines = System.IO.File.ReadAllLines("Content/Armor.csv");
+            if (db.Armors.Count() < armorLines.Length / 5)
             {
-                var armorLines = System.IO.File.ReadAllLines("Content/Armor.csv");
                 for (int i = 0; i < armorLines.Length; i += 5)
                 {
                     var parts = armorLines[i].Split(",");

@@ -1,18 +1,18 @@
 3,Hylian,Head,Hylian Hood
-5,BokoblinHorn,5
-8,BlueBokoblinHorn,5,BokoblinFang,3
-12,Amber,20,BokoblinGuts,3,BlackBokoblinHorn,5
-20,Amber,30,BokoblinGuts,5,SilverBokoblinHorn,5
+5,BokoblinHorn,5,Rupee,10
+8,BlueBokoblinHorn,5,BokoblinFang,3,Rupee,50
+12,Amber,20,BokoblinGuts,3,BlackBokoblinHorn,5,Rupee,200
+20,Amber,30,BokoblinGuts,5,SilverBokoblinHorn,5,Rupee,500
 3,Hylian,Body,Hylian Tunic
-5,BokoblinHorn,5
-8,BlueBokoblinHorn,5,BokoblinFang,3
-12,Amber,20,BokoblinGuts,3,BlackBokoblinHorn,5
-20,Amber,30,BokoblinGuts,5,SilverBokoblinHorn,5
+5,BokoblinHorn,5,Rupee,10
+8,BlueBokoblinHorn,5,BokoblinFang,3,Rupee,50
+12,Amber,20,BokoblinGuts,3,BlackBokoblinHorn,5,Rupee,200
+20,Amber,30,BokoblinGuts,5,SilverBokoblinHorn,5,Rupee,500
 3,Hylian,Legs,Hylian Trousers
-5,BokoblinHorn,5
-8,BlueBokoblinHorn,5,BokoblinFang,3
-12,Amber,20,BokoblinGuts,3,BlackBokoblinHorn,5
-20,Amber,30,BokoblinGuts,5,SilverBokoblinHorn,5
+5,BokoblinHorn,5,Rupee,10
+8,BlueBokoblinHorn,5,BokoblinFang,3,Rupee,50
+12,Amber,20,BokoblinGuts,3,BlackBokoblinHorn,5,Rupee,200
+20,Amber,30,BokoblinGuts,5,SilverBokoblinHorn,5,Rupee,500
 3,FierceDeity,Head,Fierce Deity Mask
 5,HinoxToenail,5,Rupee,10,DinraalScale,1
 8,HinoxTooth,5,Rupee,50,DinraalClaw,1

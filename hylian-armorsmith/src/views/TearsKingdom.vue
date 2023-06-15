@@ -51,7 +51,7 @@
 <style>
 .v-card.parchment {
   background: url("https://media.istockphoto.com/id/1250557985/vector/old-paper-texture.jpg?s=612x612&w=0&k=20&c=qpt_8PVjduFqgCCUFw3Inzv6Ev2wHqChfgBRy1aMsXg=")
-    no-repeat center;
+    center;
 }
 </style>
 

@@ -87,7 +87,7 @@
 <style>
 main {
   background: url("https://assets-prd.ignimgs.com/2022/09/15/zelda-tears-of-the-kingdom-gameplay-trailer-ign-33-1663229227975.jpg")
-    no-repeat center;
+    no-repeat center fixed;
   background-size: cover;
 }
 </style>

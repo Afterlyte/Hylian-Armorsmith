@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column">
     <v-row v-for="a in armorList" :key="a.id" class="ml-4 mt-4 mb-1">
-      <v-card height="100" width="250" class="parchment">
+      <v-card height="100" width="250" class="parchment mr-2">
         <v-card-title>{{ a.name }}</v-card-title>
         <v-checkbox
           label="Obtained"
@@ -9,7 +9,7 @@
           @update:model-value="updateMaterialList"
         ></v-checkbox>
       </v-card>
-      <v-card height="100" class="parchment">
+      <v-card height="100" class="parchment mr-2">
         <v-card-title>Current Level {{ currentLevels[a.id] }}</v-card-title>
         <v-card-actions>
           <v-radio-group
@@ -60,9 +60,30 @@ import { ref } from "vue";
 store.loadMaterials();
 const armorList = ref<Array<Armor>>([]);
 const subArmorList = ref<Array<Armor>>([]);
-const currentLevels = ref<Array<number>>([]);
-const goalLevels = ref<Array<number>>([]);
-const obtained = ref<Array<boolean>>([]);
+const currentLevels = ref<Array<number>>(
+  []
+  /*   JSON.parse(
+    (localStorage.getItem("current") as string) == "undefined"
+      ? "[]"
+      : (localStorage.getItem("current") as string)
+  ) */
+);
+const goalLevels = ref<Array<number>>(
+  []
+  /*   JSON.parse(
+    (localStorage.getItem("goal") as string) == "undefined"
+      ? "[]"
+      : (localStorage.getItem("goal") as string)
+  ) */
+);
+const obtained = ref<Array<boolean>>(
+  []
+  /*   JSON.parse(
+    (localStorage.getItem("obtained") as string) == "undefined"
+      ? "[]"
+      : (localStorage.getItem("obtained") as string)
+  ) */
+);
 
 const props = defineProps<{
   slotValues: string[];
@@ -72,7 +93,6 @@ const props = defineProps<{
 watch(
   () => [props.setValues, props.slotValues, obtained.value],
   () => {
-    console.log(props.setValues, props.slotValues);
     Axios.post("/Armor/FilteredArmorList", props.setValues, {
       params: {
         head: props.slotValues.includes("Head"),
@@ -83,7 +103,6 @@ watch(
       .then((response) => {
         armorList.value = response.data as Armor[];
         updateMaterialList();
-        console.log(armorList.value);
       })
       .catch((e) => {
         console.log(e);
@@ -96,20 +115,18 @@ updateMaterialList();
 
 function updateMaterialList() {
   store.loadMaterials();
+  localStorage.setItem("obtained", JSON.stringify(obtained.value));
+  localStorage.setItem("current", JSON.stringify(currentLevels.value));
+  localStorage.setItem("goal", JSON.stringify(goalLevels.value));
   subArmorList.value = JSON.parse(
     JSON.stringify(
       armorList.value.filter((a) => obtained.value.at(a.id) == true)
     )
   ) as Armor[];
 
-  console.log(subArmorList.value);
   if (subArmorList.value.length > 0) {
     subArmorList.value.forEach((a) => {
       for (let j = currentLevels.value[a.id]; j < goalLevels.value[a.id]; j++) {
-        console.log(j);
-        console.log(currentLevels.value);
-        console.log(a.id);
-        console.log(subArmorList.value.find((s) => s.id == a.id));
         if (subArmorList.value.find((s) => s.id == a.id)) {
           let armor: Armor = subArmorList.value.find(
             (s) => s.id == a.id

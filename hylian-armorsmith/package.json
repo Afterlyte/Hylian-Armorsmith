@@ -15,6 +15,7 @@
     "@vitejs/plugin-vue": "^4.2.3",
     "axios": "^1.4.0",
     "core-js": "^3.29.0",
+    "node-localstorage": "^2.2.1",
     "prettier": "^2.8.8",
     "roboto-fontface": "*",
     "vite": "^4.3.9",
