@@ -25,27 +25,27 @@
                     {
                         DefensePoints = int.Parse(parts[0])
                     });
-                        if (parts[4] == "true")
-                        {
-                    for (int j = 1; j < 5; j++)
+                    if (parts[4] == "true")
                     {
-                        parts = armorLines[i + j].Split(",");
-                        armor.DefensePoints.Add(new()
+                        for (int j = 1; j < 5; j++)
                         {
-                            DefensePoints = int.Parse(parts[0])
-                        });
-                        for (int k = 1; k < parts.Length; k += 2)
-                        {
-                            if (!(parts[k] == "")) armor.UpgradeMaterials.Add(new()
+                            parts = armorLines[i + j].Split(",");
+                            armor.DefensePoints.Add(new()
                             {
-                                Level = j - 1,
-                                Material = parts[k],
-                                Count = int.Parse(parts[k + 1])
+                                DefensePoints = int.Parse(parts[0])
                             });
-                        }
+                            for (int k = 1; k < parts.Length; k += 2)
+                            {
+                                if (!(parts[k] == "")) armor.UpgradeMaterials.Add(new()
+                                {
+                                    Level = j - 1,
+                                    Material = parts[k],
+                                    Count = int.Parse(parts[k + 1])
+                                });
+                            }
                         }
                     }
-                    if(armor.DefensePoints.Count == 5) i += 4;
+                    if (armor.DefensePoints.Count == 5) i += 4;
                     db.Armors.Add(armor);
                 }
                 db.SaveChanges();

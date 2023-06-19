@@ -7,11 +7,7 @@ export enum ArmorSlot {
 }
 
 export enum ArmorSet {
-  None = "None",
   Archaic = "Archaic",
-  Hylian = "Hylian",
-  RoyalGuard = "Royal Guard",
-  Soldiers = "Soldier's",
   Awakening = "Awakening",
   Barbarian = "Barbarian",
   Charged = "Charged",
@@ -20,29 +16,33 @@ export enum ArmorSet {
   Depths = "Depths",
   DesertVoe = "Desert Voe",
   Ember = "Ember",
+  EvilSprit = "Evil Sprit",
   FierceDeity = "Fierce Deity",
   Flamebreaker = "Flamebreaker",
   Froggy = "Froggy",
   Frostbite = "Frostbite",
   Glide = "Glide",
   Hero = "Hero",
-  Miner = "Miner's",
+  Hylian = "Hylian",
+  Miners = "Miners",
+  Mystic = "Mystic",
+  None = "Miscellaneous",
+  Phantom = "Phantom",
   Radiant = "Radiant",
+  RoyalGuard = "Royal Guard",
   Rubber = "Rubber",
   Sky = "Sky",
   Snowquill = "Snowquill",
+  Soldiers = "Soldiers",
   Stealth = "Stealth",
   Time = "Time",
+  Tingle = "Tingle",
   Twilight = "Twilight",
   Wild = "Wild",
   Wind = "Wind",
   Yiga = "Yiga",
   Zonaite = "Zonaite",
   Zora = "Zora",
-  EvilSpirit = "Evil Spirit",
-  Mystic = "Mystic",
-  Phantom = "Phantom",
-  Tingle = "Tingle",
 }
 
 export class Armor {
@@ -69,30 +69,3 @@ export class Armor {
     this.upgradeMaterials = upgradeMaterials;
   }
 }
-
-export const testList: Array<Armor> = [
-  new Armor(
-    0,
-    ArmorSet.Hylian,
-    ArmorSlot.Head,
-    "Hylian Hood",
-    [3, 4, 5, 6, 7],
-    [
-      new Material(MaterialType.BokoblinHorn, 3, 1),
-      new Material(MaterialType.FroxFang, 1, 2),
-      new Material(MaterialType.LizalfosTail, 1, 3),
-    ]
-  ),
-  new Armor(
-    1,
-    ArmorSet.Hylian,
-    ArmorSlot.Body,
-    "Hylian Tunic",
-    [3, 4, 5, 6, 7],
-    [
-      new Material(MaterialType.BokoblinHorn, 3, 1),
-      new Material(MaterialType.FroxFang, 1, 2),
-      new Material(MaterialType.LizalfosTail, 1, 3),
-    ]
-  ),
-];

@@ -1,7 +1,7 @@
 <template>
   <v-card class="mt-16 h-100">
     <v-layout :full-height="true">
-      <v-navigation-drawer width="250" color="transparent" border="none">
+      <v-navigation-drawer width="300" color="transparent" border="none">
         <v-divider></v-divider>
         <v-card
           prepend-icon="mdi-filter"
@@ -37,9 +37,16 @@
                 </v-chip>
               </template>
             </v-select>
+            <v-row class="justify-center mb-1">
+              <v-btn @click="toggleAll" color="rgb(13,146,99)"
+                >Toggle All</v-btn
+              >
+            </v-row>
           </v-container>
         </v-card>
         <MaterialsList />
+        <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
       </v-navigation-drawer>
 
       <v-main style="min-height: 300px">
@@ -83,4 +90,12 @@ watch(
     localStorage.setItem("slots", JSON.stringify(slotValues.value));
   }
 );
+
+function toggleAll() {
+  if (setValues.value.length < sets.length) {
+    setValues.value = sets;
+  } else {
+    setValues.value = [];
+  }
+}
 </script>

@@ -57,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { Armor, testList } from "@/scripts/armor";
+import { Armor } from "@/scripts/armor";
 import { Material } from "@/scripts/material";
 import { store } from "@/scripts/store";
 import Axios from "axios";

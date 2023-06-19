@@ -33,8 +33,15 @@ namespace Armorsmith.Api
         public async Task<List<string>> GetFullMaterialListAsync()
         {
             List<string> materials = new();
-            await _db.Armors.Include(a => a.UpgradeMaterials).ForEachAsync(a => a.UpgradeMaterials.ForEach(m => materials.Add(m.Material!)));
+            await _db.Armors.Include(a => a.UpgradeMaterials).ForEachAsync(a => a.UpgradeMaterials.ForEach(m => materials.Add("'" + m.Material! + "'' = '" + m.Material! + "'")));
             return materials.Distinct().OrderBy(m => m).ToList();
+        }
+
+        public async Task<List<string>> GetFullArmorSetListAsync()
+        {
+            List<string> armorSets = new();
+            await _db.Armors.ForEachAsync(a => armorSets.Add("'" + a.Set! + "'' = '" + a.Set! + "'"));
+            return armorSets.Distinct().OrderBy(a => a).ToList();
         }
     }
 }

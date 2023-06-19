@@ -35,5 +35,11 @@ namespace Armorsmith.Api.Controllers
         {
             return await _armorService.GetFullMaterialListAsync();
         }
+
+        [HttpGet("FullArmorSetList")]
+        public async Task<List<string>> GetFullArmorSetList()
+        {
+            return await _armorService.GetFullArmorSetListAsync();
+        }
     }
 }

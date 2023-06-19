@@ -105,6 +105,8 @@ const signUpDialogue = ref(false);
 
 const signedIn = ref(false);
 
+document.title = "Hylian Armorsmith";
+
 function signIn() {
   signedIn.value = true;
   signInDialogue.value = false;
